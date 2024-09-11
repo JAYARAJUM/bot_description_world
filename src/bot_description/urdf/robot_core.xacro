@@ -6,7 +6,7 @@
     <xacro:property name="chassis_length" value="0.2"/>
     <xacro:property name="chassis_width" value="0.2"/>
     <xacro:property name="chassis_height" value="0.1"/>
-    <xacro:property name="chassis_mass" value="1.0"/>
+    <xacro:property name="chassis_mass" value="5.0"/>
     <xacro:property name="wheel_radius" value="0.06"/>
     <xacro:property name="wheel_thickness" value="0.01"/>
     <xacro:property name="wheel_mass" value="0.05"/>
@@ -14,7 +14,7 @@
     <xacro:property name="wheel_offset_y" value="0.108"/>
     <xacro:property name="wheel_offset_z" value="0.04"/>
     <xacro:property name="caster_wheel_radius" value="0.021"/>
-    <xacro:property name="caster_wheel_mass" value="0.01"/>
+    <xacro:property name="caster_wheel_mass" value="2"/>
     <xacro:property name="caster_wheel_offset_x" value="0.165"/>
     <xacro:property name="caster_wheel_offset_z" value="${wheel_offset_z - wheel_radius + caster_wheel_radius}"/>
 
@@ -216,25 +216,30 @@
 
     <gazebo>
         <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-            <update_rate>50</update_rate>
-            <left_joint>left_wheel_joint</left_joint>
-            <right_joint>right_wheel_joint</right_joint>
-            <wheel_separation>${2 * wheel_offset_y}</wheel_separation>
-            <wheel_diameter>${2 * wheel_radius}</wheel_diameter>
-            <wheel_acceleration>5.0</wheel_acceleration>
-            <wheel_torque>25</wheel_torque>
-            <command_topic>cmd_vel</command_topic>
-            <odometry_topic>odom</odometry_topic>
-            <odometry_frame>odom</odometry_frame>
-            <robot_base_frame>base_link</robot_base_frame>
-            <publish_wheel_tf>false</publish_wheel_tf>
-            <publish_odom>true</publish_odom>
-            <publish_odom_tf>true</publish_odom_tf>
-            <publish_wheel_joint_state>true</publish_wheel_joint_state>
-            <legacy_mode>false</legacy_mode>
-
+          <update_rate>100</update_rate>
+          <left_joint>left_wheel_joint</left_joint>
+          <right_joint>right_wheel_joint</right_joint>
+          <wheel_separation>${2 * wheel_offset_y}</wheel_separation>
+          <wheel_diameter>${2 * wheel_radius}</wheel_diameter>
+          <wheel_acceleration>5.0</wheel_acceleration>
+          <wheel_torque>25</wheel_torque>
+          <command_topic>cmd_vel</command_topic>
+          <odometry_topic>odom</odometry_topic>
+          <odometry_frame>odom</odometry_frame>
+          <robot_base_frame>base_link</robot_base_frame>
+          <publish_rate>100</publish_rate>
+          <publish_odom>true</publish_odom>
+          <publish_wheel_tf>true</publish_wheel_tf>
+          <publish_wheel_joint_state>true</publish_wheel_joint_state>
+          
+          
+          <max_velocity>10.0</max_velocity>
+          
+          <ros>
+            <namespace>/</namespace>
+          </ros>
         </plugin>
-    </gazebo>
+      </gazebo>
 
 
 </robot>
