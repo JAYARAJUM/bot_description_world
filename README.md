@@ -16,7 +16,7 @@ rviz2
 ```
 mkdr jayaraju_ws/src
 cd jayaraju_ws/src
-git clone https://github.com/ADL-Robotics/adl-ros2.git .
+git clone https://github.com/JAYARAJUM/bot_description_world.git .
 ```
 
 #### Install dependencies
