@@ -21,7 +21,7 @@ git clone https://github.com/JAYARAJUM/bot_description_world.git .
 
 #### Install dependencies
 ```
-cd rjayaraju_ws
+cd jayaraju_ws
 rosdep update
 rosdep install --from-paths src --ignore-src --rosdistro humble -r -y
 ```
